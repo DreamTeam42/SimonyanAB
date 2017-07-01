@@ -142,17 +142,39 @@ def getHtml(page):
     return html.text
 
 def main():
-    for i in range(5):
-        page = 'http://www.restate.ru/rent_lease.html?page=' + str(i)#аренда
+    for i in range(280):  # парсинг покупок квартир
+        page = 'http://www.restate.ru/flats.html?page=' + str(i)
 
         html = getHtml(page)
         links_lst = get_object(html)
 
         get_info(links_lst)
 
-    #покупка
+    for i in range(280):  # парсинг покупок участков
+        page = 'http://www.restate.ru/lands.html?page=' + str(i)
 
-    print("Готово, хозяин")
+        html = getHtml(page)
+        links_lst = get_object(html)
+
+        get_info(links_lst)
+
+    for i in range(280):  # парсинг аренды квартир
+        page = 'http://www.restate.ru/rent_lease.html?page=' + str(i)
+
+        html = getHtml(page)
+        links_lst = get_object(html)
+
+        get_info(links_lst)
+
+    for i in range(280):  # парсинг аренды\покупки оффисов
+        page = 'http://www.restate.ru/offices.html?page=' + str(i)
+
+        html = getHtml(page)
+        links_lst = get_object(html)
+
+        get_info(links_lst)
+
+    #print("Готово, хозяин")
 
 if __name__ == '__main__':
     main()
